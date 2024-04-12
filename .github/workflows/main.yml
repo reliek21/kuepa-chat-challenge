@@ -9,15 +9,6 @@ on:
       - develop
 
 jobs:
-  changelog:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dangoslen/changelog-enforcer@v2
-        with:
-          changeLogPath: 'CHANGELOG.md'
-          skipLabels: 'Trivial'
-
   build:
     runs-on: ubuntu-latest
     needs: changelog
