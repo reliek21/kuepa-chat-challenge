@@ -1,4 +1,5 @@
 export interface IEnvironments {
-	RESEND_API_KEY: string;
-	GOOGLE_ANALYTICS: string;
+	NODE_ENV: string;
+	NEXTAUTH_SECRET: string;
+	NEXTAUTH_URL: string;
 }

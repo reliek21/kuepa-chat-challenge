@@ -4,6 +4,10 @@ export interface IRoutes {
 }
 
 export interface IAuthRoute {
-	login: string;
+	signIn: string;
 	signUp: string;
+	signOut: string;
+	error: string;
+	newUser: string;
+	verifyRequest: string;
 }

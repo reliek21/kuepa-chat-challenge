@@ -20,6 +20,8 @@ import {
 } from './Select/Select';
 import { Separator } from './Separator/Separator';
 import { Textarea } from './Textarea/Textarea';
+import { Toaster } from './Toast/Toaster';
+import { toast } from './Toast/use-toast';
 import {
 	Tooltip,
 	TooltipContent,
@@ -51,5 +53,7 @@ export {
 	Textarea,
 	Avatar,
 	AvatarImage,
-	AvatarFallback
+	AvatarFallback,
+	Toaster,
+	toast
 };

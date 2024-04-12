@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { signOut } from 'next-auth/react';
 import { YouTubeEmbed } from '@next/third-parties/google';
 
 import { Button } from '@/components/ui/shadcn';
@@ -15,7 +18,9 @@ export default function Content(): React.ReactElement {
 				<YouTubeEmbed videoid='RtevrQZCdAU' params='controls=0 autoplay=1' />
 
 				<div className='flex items-center justify-between mt-4'>
-					<Button variant='destructive'>Salir de la tutoría</Button>
+					<Button onClick={() => signOut()} variant='destructive'>
+						Salir de la tutoría
+					</Button>
 				</div>
 			</div>
 

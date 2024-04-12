@@ -3,6 +3,7 @@ import ButtonIcon from './ButtonIcon/ButtonIcon';
 import CustomAvatar from './CustomAvatar/CustomAvatar';
 import LoginDescription from './LoginDescription/LoginDescription';
 import LoginTitle from './LoginTitle/LoginTitle';
+import MarginContainer from './MarginContainer/MarginContainer';
 import SeparatorText from './SeparatorText/SeparatorText';
 import TextLink from './TextLink/TextLink';
 import TooltipIcon from './TooltipIcon/TooltipIcon';
@@ -19,5 +20,6 @@ export {
 	ButtonCustom,
 	ValidatedText,
 	TooltipIcon,
-	CustomAvatar
+	CustomAvatar,
+	MarginContainer
 };
