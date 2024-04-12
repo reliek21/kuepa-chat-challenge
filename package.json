@@ -2,14 +2,9 @@
 	"name": "nextjs-boilerplate",
 	"description": "Next.js Boilerplate to improve your projects",
 	"version": "1.0.0",
-	"license": "MIT",
+	"license": "UNLICENSED",
 	"readme": "README.md",
 	"publisher": "Keiler Guardo",
-	"repository": {
-		"type": "boilerplate",
-		"directory": "reliek21",
-		"url": "https://github.com/reliek21/nextjs-boilerplate"
-	},
 	"author": {
 		"name": "Keiler Guardo",
 		"email": "keilerguardo@gmail.com",

@@ -1,6 +1,4 @@
-# Name of project here
-
-![image banner](public/banner/image-banner.png)
+# Kuepa Chat Challenge
 
 _Name of project here_ is a project designed to provide a user-friendly interface for users.
 
@@ -66,7 +64,3 @@ npm install
 ```bash
 Start the development server:
 ```
-
-### License:
-
-This project is licensed under the [MIT License](LICENSE.md). See the `LICENSE.md` file in the project repository for more details.
