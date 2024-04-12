@@ -4,12 +4,7 @@ import {
 	ButtonIcon,
 	SeparatorText
 } from '@/components/ui/custom';
-import {
-	FlexContainer,
-	LegalLoginText,
-	LoginForm,
-	SupportLogin
-} from '@/components/widgets';
+import { FlexContainer, LegalLoginText, LoginForm } from '@/components/widgets';
 import { AUTH_ROUTES } from '@/routes';
 
 export default function LoginSection() {
@@ -32,7 +27,6 @@ export default function LoginSection() {
 			<LoginForm />
 
 			<LegalLoginText />
-			<SupportLogin />
 		</div>
 	);
 }

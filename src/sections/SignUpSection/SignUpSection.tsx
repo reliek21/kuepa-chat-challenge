@@ -7,7 +7,6 @@ import {
 import {
 	LegalLoginText,
 	SignUpForm,
-	SupportLogin,
 	FlexContainer
 } from '@/components/widgets';
 import { AUTH_ROUTES } from '@/routes';
@@ -32,7 +31,6 @@ export default function SignUpSection() {
 			<SignUpForm />
 
 			<LegalLoginText />
-			<SupportLogin />
 		</div>
 	);
 }
