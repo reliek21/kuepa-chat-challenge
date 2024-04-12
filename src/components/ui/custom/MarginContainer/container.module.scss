@@ -1,0 +1,21 @@
+@import '@/styles/globals.module';
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	padding: 0 $spacing-56;
+
+	&__main {
+		width: 100%;
+		max-width: $breakpoint-desktop;
+	}
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.container {
+		padding: 0 $spacing-16;
+	}
+}
