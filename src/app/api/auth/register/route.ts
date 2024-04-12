@@ -11,7 +11,7 @@ export async function POST(request: NextRequest): Promise<Response> {
 	try {
 		const data: IUser = await request.json();
 
-		const { name, username, email, password }: IUser = data;
+		const { name, username, role, email, password }: IUser = data;
 
 		const emailFound: IUser | null = await prisma.user.findUnique({
 			where: {
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest): Promise<Response> {
 		await prisma.user.create({
 			data: {
 				name: name,
+				role: role,
 				username: username,
 				email: lowerCaseEmail,
 				password: hashedPassword

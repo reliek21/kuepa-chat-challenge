@@ -9,6 +9,14 @@ import {
 	DrawerTitle,
 	DrawerTrigger
 } from './Drawer/Drawer';
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger
+} from './DropdownMenu/DropdownMenu';
 import { Input } from './Input/Input';
 import { Label } from './Label/Label';
 import {
@@ -55,5 +63,11 @@ export {
 	AvatarImage,
 	AvatarFallback,
 	Toaster,
-	toast
+	toast,
+	DropdownMenu,
+	DropdownMenuTrigger,
+	DropdownMenuContent,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuItem
 };

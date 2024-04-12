@@ -11,6 +11,8 @@ export default function SignUpForm() {
 		handleSubmit,
 		name,
 		setName,
+		username,
+		setUsername,
 		email,
 		setEmail,
 		password,
@@ -28,17 +30,22 @@ export default function SignUpForm() {
 	} = useValidateForm();
 
 	return (
-		<form
-			action='#'
-			onSubmit={handleSubmit}
-			method='POST'
-			className='mt-10 mb-5'>
+		<form onSubmit={handleSubmit} method='POST' className='mt-10 mb-5'>
 			<InputLabel
 				id='name'
 				label='Nombre completo'
 				placeholder='John Doe'
 				value={name}
 				onChange={handleChangeInput(setName)}
+				required
+			/>
+
+			<InputLabel
+				id='username'
+				label='Usuario'
+				placeholder='Doe'
+				value={username}
+				onChange={handleChangeInput(setUsername)}
 				required
 			/>
 
@@ -105,10 +112,7 @@ export default function SignUpForm() {
 					text='Continuar'
 					styles='mt-3'
 					disabled={
-						isSubmitted ||
-						!isFormIncomplete ||
-						!isValidEmail ||
-						!confirmPassword
+						isSubmitted || isFormIncomplete || !isValidEmail || !confirmPassword
 					}
 				/>
 			</div>
