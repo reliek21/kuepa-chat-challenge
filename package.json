@@ -12,6 +12,7 @@
 		"start": "next start",
 		"format": "prettier --write .",
 		"lint": "next lint",
+		"server": "node server.js",
 		"lint:fix": "eslint . --fix",
 		"test": "jest",
 		"build:prod": "next lint && eslint . --fix && next build",
@@ -43,6 +44,8 @@
 		"react-hook-form": "^7.51.2",
 		"react-toastify": "^10.0.5",
 		"resend": "^3.2.0",
+		"socket.io": "^4.7.5",
+		"socket.io-client": "^4.7.5",
 		"tailwind-merge": "^2.2.1",
 		"tailwindcss-animate": "^1.0.7",
 		"vaul": "^0.9.0",
@@ -55,6 +58,7 @@
 		"@types/react-dom": "^18",
 		"autoprefixer": "^10.4.18",
 		"bcryptjs": "^2.4.3",
+		"concurrently": "^8.2.2",
 		"eslint": "^8",
 		"eslint-config-next": "^14.1.3",
 		"eslint-config-prettier": "^9.1.0",
@@ -67,6 +71,6 @@
 		"prisma": "^5.11.0",
 		"sass": "^1.71.1",
 		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"typescript": "^5.4.5"
 	}
 }
