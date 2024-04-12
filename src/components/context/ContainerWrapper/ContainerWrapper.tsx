@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 import { Inter as FontSans } from 'next/font/google';
 
 import { IContainerWrapper } from './interfaces/ContainerWrapper';
+
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import '@/styles/globals.css';
 
 const fontSans = FontSans({
