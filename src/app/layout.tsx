@@ -10,7 +10,6 @@ import { CONFIG_ENVIRONMENTS } from '@/config';
 import { cn } from '@/lib/utils';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '@/styles/globals.css';
 
 const fontSans = FontSans({
 	subsets: ['latin'],
