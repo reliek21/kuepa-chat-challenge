@@ -19,15 +19,11 @@ app.prepare().then(() => {
 	const io = new SocketIOServer(httpServer, {
 		path: '/socket.io',
 		cors: {
-			origin: '*', // Permitir solicitudes desde cualquier origen
-			methods: ['GET', 'POST', 'PUT', 'DELETE'], // Permitir todos los métodos HTTP
+			origin: '*',
+			methods: ['GET', 'POST', 'PUT', 'DELETE'],
 			allowedHeaders: ['my-custom-header'],
 			credentials: true
 		}
-	});
-
-	io.on('connect_error', (error) => {
-		console.error('Error de conexión Socket.io:', error);
 	});
 
 	io.on('connection', (socket) => {

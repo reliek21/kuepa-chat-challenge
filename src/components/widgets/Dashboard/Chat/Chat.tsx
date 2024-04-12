@@ -5,10 +5,6 @@ import { io, Socket } from 'socket.io-client';
 
 export const socket: Socket = io('http://localhost:3001');
 
-socket.on('connect_error', (error) => {
-	console.error('Error de conexión Socket.io:', error);
-});
-
 interface User {
 	id: string;
 	username: string;
