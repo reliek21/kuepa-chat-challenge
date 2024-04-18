@@ -1,6 +1,7 @@
 import { IEnvironments } from '@/interface/enviroments';
 
 export const CONFIG_ENVIRONMENTS: IEnvironments = {
-	RESEND_API_KEY: (process.env.RESEND_API_KEY as string) || '',
-	GOOGLE_ANALYTICS: (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string) || ''
+	NODE_ENV: (process.env.NODE_ENV as string) || 'development',
+	NEXTAUTH_URL: (process.env.NEXTAUTH_URL as string) || '',
+	NEXTAUTH_SECRET: (process.env.NEXTAUTH_SECRET as string) || ''
 };

@@ -4,13 +4,14 @@ import { IButtonCustom } from './interface/ButtonCustom.interface';
 export default function ButtonCustom({
 	text,
 	disabled = false,
+	buttonType = 'button',
 	styles
 }: IButtonCustom) {
 	return (
 		<Button
 			role='button'
 			aria-label={`button for ${text}`}
-			type='button'
+			type={buttonType}
 			className={styles}
 			disabled={disabled}>
 			{text}

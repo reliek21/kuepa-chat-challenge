@@ -18,16 +18,12 @@ export default function LoginForm() {
 	} = useValidateFormLogin();
 
 	return (
-		<form
-			action='#'
-			onSubmit={handleSubmit}
-			method='POST'
-			className='mt-10 mb-5'>
+		<form onSubmit={handleSubmit} method='POST' className='mt-10 mb-5'>
 			<InputLabel
 				id='email'
 				inputType='email'
-				label='Enter your email'
-				placeholder='name@email.com'
+				label='Ingresa tu correo'
+				placeholder='nombre@email.com'
 				value={email}
 				onChange={handleChangeInput(setEmail)}
 				required
@@ -36,7 +32,7 @@ export default function LoginForm() {
 			<InputLabel
 				id='password'
 				inputType='password'
-				label='Enter your password'
+				label='Ingresa tu contraseña'
 				placeholder='**********'
 				hasForgotPassword={true}
 				value={password}
@@ -47,7 +43,8 @@ export default function LoginForm() {
 
 			<div className='grid w-full max-w-sm items-center gap-1.5'>
 				<ButtonCustom
-					text='Continue'
+					buttonType='submit'
+					text='Continuar'
 					styles='mt-3'
 					disabled={isSubmitted || isFormIncomplete}
 				/>

@@ -9,6 +9,14 @@ import {
 	DrawerTitle,
 	DrawerTrigger
 } from './Drawer/Drawer';
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger
+} from './DropdownMenu/DropdownMenu';
 import { Input } from './Input/Input';
 import { Label } from './Label/Label';
 import {
@@ -20,6 +28,8 @@ import {
 } from './Select/Select';
 import { Separator } from './Separator/Separator';
 import { Textarea } from './Textarea/Textarea';
+import { Toaster } from './Toast/Toaster';
+import { toast } from './Toast/use-toast';
 import {
 	Tooltip,
 	TooltipContent,
@@ -51,5 +61,13 @@ export {
 	Textarea,
 	Avatar,
 	AvatarImage,
-	AvatarFallback
+	AvatarFallback,
+	Toaster,
+	toast,
+	DropdownMenu,
+	DropdownMenuTrigger,
+	DropdownMenuContent,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuItem
 };

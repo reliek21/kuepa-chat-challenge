@@ -1,32 +1,21 @@
-import {
-	LoginTitle,
-	LoginDescription,
-	ButtonIcon,
-	SeparatorText
-} from '@/components/ui/custom';
-import { FlexContainer, LegalLoginText, LoginForm } from '@/components/widgets';
+import React from 'react';
+
+import { LoginTitle, LoginDescription } from '@/components/ui/custom';
+import { LegalLoginText, LoginForm } from '@/components/widgets';
+
 import { AUTH_ROUTES } from '@/routes';
 
-export default function LoginSection() {
+export default function LoginSection(): React.ReactElement {
 	return (
-		<div className='container w-3/4 p-3 max-md:w-full'>
-			<LoginTitle title='Sign in to Project' />
+		<section className='container w-3/4 p-3 max-md:w-full'>
+			<LoginTitle title='Acceder a Kuepa Chat' />
 			<LoginDescription
-				description="Don't have an account?"
-				buttonText='Get started'
+				description='¿No tienes cuenta?'
+				buttonText='Registrate'
 				buttonUrl={AUTH_ROUTES.signUp}
 			/>
-
-			<FlexContainer>
-				<ButtonIcon icon='github' text='Github' />
-				<ButtonIcon icon='google' text='Google' />
-			</FlexContainer>
-
-			<SeparatorText text='OR CONTINUE WITH' />
-
 			<LoginForm />
-
 			<LegalLoginText />
-		</div>
+		</section>
 	);
 }

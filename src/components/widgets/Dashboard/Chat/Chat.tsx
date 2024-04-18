@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Button, Textarea } from '@/components/ui/shadcn';
 import { io, Socket } from 'socket.io-client';
+import { useSession } from 'next-auth/react';
 
 export const socket: Socket = io('http://localhost:3001');
 
@@ -12,6 +13,8 @@ interface User {
 }
 
 export default function Chat(): React.ReactElement {
+	const { data: session } = useSession();
+
 	const [isConnected, setIsConnected] = React.useState<boolean>(false);
 	const [transport, setTransport] = React.useState<string>('N/A');
 	const [messages, setMessages] = React.useState<Array<string>>([]);
@@ -48,19 +51,18 @@ export default function Chat(): React.ReactElement {
 		};
 	}, []);
 
-	const handleLogin = (): void => {
-		const username = prompt('Enter your username:');
-		if (username) {
-			const newUser: User = {
-				id: socket.id as string,
-				username: username,
-				role: 'user'
-			};
+	const username: string | null | undefined = session?.user?.name;
 
-			socket.emit('login', newUser);
-			setUser(newUser);
-		}
-	};
+	if (username) {
+		const newUser: User = {
+			id: socket.id as string,
+			username: username,
+			role: 'student'
+		};
+
+		socket.emit('login', newUser);
+		setUser(newUser);
+	}
 
 	const handleMessageSubmit: React.FormEventHandler<HTMLFormElement> = (
 		e: React.FormEvent
@@ -77,7 +79,7 @@ export default function Chat(): React.ReactElement {
 		<div className='h-full flex flex-col items-center justify-between'>
 			<p>Status: {isConnected ? 'connected' : 'disconnected'}</p>
 
-			{user ? (
+			{user && (
 				<>
 					<div>
 						{messages.map((message: string, index: number) => (
@@ -106,15 +108,6 @@ export default function Chat(): React.ReactElement {
 						</div>
 					</form>
 				</>
-			) : (
-				<Button
-					type='submit'
-					onClick={handleLogin}
-					size='sm'
-					className='ml-auto gap-1.5'>
-					Enviar mensaje
-					<i className='bi bi-arrow-return-left'></i>
-				</Button>
 			)}
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { MAIN_ROUTES } from '@/routes';
+import { AUTH_ROUTES } from '@/routes';
 
 export default function HomeSection(): React.ReactElement {
 	return (
@@ -16,8 +16,8 @@ export default function HomeSection(): React.ReactElement {
 			</p>
 
 			<Link
-				href={MAIN_ROUTES.dashboard}
-				className='text-white p-2 px-4 rounded bg-orange-500 hover:bg-orange-600'>
+				href={AUTH_ROUTES.signIn}
+				className='text-white p-2 px-4 rounded bg-orange-500 hover:bg-orange-600 animate-bounce'>
 				Ingresar a Kuepa EduTech
 			</Link>
 		</main>
