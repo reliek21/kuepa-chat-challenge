@@ -1,4 +1,7 @@
+import React from 'react';
 import { Metadata } from 'next';
+
+import { GradientContainer } from '@/components/context';
 import { MarginContainer } from '@/components/ui/custom';
 import { SignUpSection } from '@/sections';
 
@@ -8,12 +11,12 @@ export const metadata: Metadata = {
 	description: 'Sign Up Page'
 };
 
-export default function SignUpPage() {
+export default function SignUpPage(): React.ReactElement {
 	return (
-		<main className='min-h-screen flex items-center justify-center flex-col bg-gradient-to-br from-orange-100'>
+		<GradientContainer>
 			<MarginContainer>
 				<SignUpSection />
 			</MarginContainer>
-		</main>
+		</GradientContainer>
 	);
 }

@@ -11,6 +11,8 @@ export default function SignUpForm() {
 		handleSubmit,
 		name,
 		setName,
+		username,
+		setUsername,
 		email,
 		setEmail,
 		password,
@@ -28,14 +30,10 @@ export default function SignUpForm() {
 	} = useValidateForm();
 
 	return (
-		<form
-			action='#'
-			onSubmit={handleSubmit}
-			method='POST'
-			className='mt-10 mb-5'>
+		<form onSubmit={handleSubmit} method='POST' className='mt-10 mb-5'>
 			<InputLabel
 				id='name'
-				label='Full Name'
+				label='Nombre completo'
 				placeholder='John Doe'
 				value={name}
 				onChange={handleChangeInput(setName)}
@@ -43,9 +41,18 @@ export default function SignUpForm() {
 			/>
 
 			<InputLabel
+				id='username'
+				label='Usuario'
+				placeholder='Doe'
+				value={username}
+				onChange={handleChangeInput(setUsername)}
+				required
+			/>
+
+			<InputLabel
 				id='email'
 				inputType='email'
-				label='Enter your email'
+				label='Ingresa tu correo'
 				placeholder='name@email.com'
 				value={email}
 				onChange={handleChangeInput(setEmail)}
@@ -56,7 +63,7 @@ export default function SignUpForm() {
 			<InputLabel
 				id='password'
 				inputType='password'
-				label='Enter your password'
+				label='Ingresa tu contraseña'
 				placeholder='**********'
 				value={password}
 				onChange={handleChangeInput(setPassword)}
@@ -67,7 +74,7 @@ export default function SignUpForm() {
 			<InputLabel
 				id='password-repeat'
 				inputType='password'
-				label='Repeat your password'
+				label='Repite tu contraseña'
 				placeholder='**********'
 				value={passwordConfirm}
 				onChange={handleChangeInput(setPasswordConfirm)}
@@ -76,29 +83,33 @@ export default function SignUpForm() {
 			/>
 
 			<div className='flex flex-col gap-1 my-5'>
-				<ValidatedText text='Valid email address' isValid={isValidEmail} />
+				<ValidatedText text='Corre valido' isValid={isValidEmail} />
 				<ValidatedText
-					text='Mix of uppercase and lowercase'
+					text='Mayúsculas y minúsculas'
 					isValid={hasUpperAndLowerLetters}
 				/>
 				<ValidatedText
-					text='Minimum 8 characters long'
+					text='8 caracteres como mínimo'
 					isValid={passwordLength}
 				/>
 				<ValidatedText
-					text='Contain at least 1 number'
+					text='Contienen al menos 1 número'
 					isValid={passwordHasNumbers}
 				/>
 				<ValidatedText
-					text='Contain at least one special character'
+					text='Contienen al menos un carácter especial'
 					isValid={specialChars}
 				/>
-				<ValidatedText text='Passwords match' isValid={confirmPassword} />
+				<ValidatedText
+					text='Coincidencia de contraseñas'
+					isValid={confirmPassword}
+				/>
 			</div>
 
 			<div className='grid w-full max-w-sm items-center gap-1.5'>
 				<ButtonCustom
-					text='Continue'
+					buttonType='submit'
+					text='Continuar'
 					styles='mt-3'
 					disabled={
 						isSubmitted || isFormIncomplete || !isValidEmail || !confirmPassword

@@ -1,29 +1,22 @@
 import React, { useState } from 'react';
-import { FormDataValidator } from '@/helpers';
+import { useRouter } from 'next/navigation';
+
+import { AUTH_ROUTES } from '@/routes';
+import { FormDataValidatorHelper } from '@/helpers/auth';
 
 export function useValidateForm(): any {
-	const [name, setName]: [
-		string,
-		(value: ((prevState: string) => string) | string) => void
-	] = useState<string>('');
-	const [email, setEmail]: [
-		string,
-		(value: ((prevState: string) => string) | string) => void
-	] = useState<string>('');
-	const [password, setPassword]: [
-		string,
-		(value: ((prevState: string) => string) | string) => void
-	] = useState<string>('');
-	const [passwordConfirm, setPasswordConfirm]: [
-		string,
-		(value: ((prevState: string) => string) | string) => void
-	] = useState<string>('');
-	const [isSubmitted, setIsSubmitted]: [
-		boolean,
-		(value: ((prevState: boolean) => boolean) | boolean) => void
-	] = useState<boolean>(false);
+	const router: any = useRouter();
 
-	const formDataValidator: FormDataValidator = new FormDataValidator();
+	const [name, setName] = useState<string>('');
+	const [username, setUsername] = useState<string>('');
+	const [email, setEmail] = useState<string>('');
+	const [password, setPassword] = useState<string>('');
+	const [passwordConfirm, setPasswordConfirm] = useState<string>('');
+
+	const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+	const formDataValidator: FormDataValidatorHelper =
+		new FormDataValidatorHelper();
 
 	const isValidEmail: boolean = formDataValidator.validateEmail(email);
 	const passwordLength: boolean = formDataValidator.validatePasswordLength(
@@ -34,13 +27,14 @@ export function useValidateForm(): any {
 		password,
 		passwordConfirm
 	);
-	const specialChars: boolean = formDataValidator.hasSpecialChars(password);
+	const specialChars: boolean =
+		formDataValidator.hasSpecialCharacters(password);
 	const passwordHasNumbers: boolean = formDataValidator.hasNumbers(password);
 	const hasUpperAndLowerLetters: boolean =
 		formDataValidator.hasUpperAndLowerCaseLetters(password);
 
 	const isFormIncomplete: boolean =
-		!name || !email || !password || !passwordConfirm;
+		!name || !username || !email || !password || !passwordConfirm;
 
 	const isFormValid: () => boolean = (): boolean => {
 		return (
@@ -53,16 +47,49 @@ export function useValidateForm(): any {
 		);
 	};
 
-	const handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void = (
+	const handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void = async (
 		e: React.FormEvent<HTMLFormElement>
-	): void => {
+	): Promise<void> => {
 		e.preventDefault();
-		setIsSubmitted(isFormValid());
+
+		try {
+			const response: Response = await fetch('/api/auth/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					name: name,
+					username: username,
+					email: email,
+					password: password
+				})
+			});
+
+			if (response.ok) {
+				setTimeout(() => setIsSubmitted(true), 1500);
+
+				setName('');
+				setUsername('');
+				setEmail('');
+				setPassword('');
+				setPasswordConfirm('');
+				router.push(AUTH_ROUTES.signIn);
+			} else {
+				setIsSubmitted(false);
+				console.log('Error creating user');
+			}
+		} catch (error: unknown) {
+			setIsSubmitted(false);
+			console.log('Error creating user - catch:', error);
+		}
 	};
 
 	return {
 		name,
 		setName,
+		username,
+		setUsername,
 		email,
 		setEmail,
 		password,
